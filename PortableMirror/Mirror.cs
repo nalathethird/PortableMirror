@@ -4,6 +4,7 @@ using FrooxEngine.UIX;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
+using Renderite.Shared;
 using static FrooxEngine.CubemapCreator;
 using PortableMirror;
 
@@ -204,7 +205,7 @@ namespace PortableMirror {
             _reflectMat = mSlot.AttachComponent<ReflectionMaterial>();
             float b = ((float)_brightness) / 10;
             float O = ((float)_Opacity) / 10;
-            _reflectMat.TintColor.Value = new colorX(b, b, b, O, ColorProfile.Linear);
+            _reflectMat.TintColor.Value = new colorX(b, b, b, O, Renderite.Shared.ColorProfile.Linear);
             _reflectMat.ReflectionTexture.Value = _rtp.ReferenceID;
             MeshCollider collider = mSlot.AttachComponent<MeshCollider>();
             mSlot.AttachComponent<DuplicateBlock>();
