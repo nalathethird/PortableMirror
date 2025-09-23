@@ -9,8 +9,8 @@ namespace PortableMirror {
     public class PortableMirror : ResoniteMod {
 
         public override string Name => "PortableMirror";
-        public override string Author => "HamoCorp";
-        public override string Version => "1.0.0";
+        public override string Author => "HamoCorp | Updated by NalaTheThird/Zeia Nala";
+        public override string Version => "1.0.1";
         public override string Link => "https://github.com/HamoCorp/PortableMirror";
 
         private static ModConfiguration Config;
@@ -32,7 +32,6 @@ namespace PortableMirror {
             Mirror.MirrorsList[3].upDatePrivateValues("Face Mirror", Config.GetValue(_position4), Config.GetValue(_rotation4), Config.GetValue(_scale4), Config.GetValue(_MType4), Config.GetValue(_grabable4), Config.GetValue(_Pin4), false, Config.GetValue(_Shadows4), Config.GetValue(_brightness4), Config.GetValue(_Opacity4), Config.GetValue(_Resolution4), Config.GetValue(_RotationSource4));
             Mirror.MirrorsList[4].upDatePrivateValues(Config.GetValue(_mirror5), Config.GetValue(_position5), Config.GetValue(_rotation5), Config.GetValue(_scale5), Config.GetValue(_MType5), Config.GetValue(_grabable5), Config.GetValue(_Pin5), false, Config.GetValue(_Shadows5), Config.GetValue(_brightness5), Config.GetValue(_Opacity5), Config.GetValue(_Resolution5), Config.GetValue(_RotationSource5));
             Mirror.MirrorsList[5].upDatePrivateValues("FBT Mirror", Config.GetValue(_position6), Config.GetValue(_rotation6), Config.GetValue(_scale6), Config.GetValue(_MType6), Config.GetValue(_grabable6), Config.GetValue(_Pin6), false, Config.GetValue(_Shadows6), Config.GetValue(_brightness6), Config.GetValue(_Opacity6), Config.GetValue(_Resolution6), Config.GetValue(_RotationSource6));
-            Mirror.personalLight.setValues(Config.GetValue(_LightColor), Config.GetValue(_LightRange));
 
 /*
                 switch (index) {
@@ -111,8 +110,6 @@ namespace PortableMirror {
                     foreach (Mirror m in Mirror.MirrorsList) {
                         m.OnCommonUpdate(_userSpaceSlot);
                     }
-                    Mirror.personalLight.OnCommonUpdate(_userSpaceSlot);
-
                 }
                 else
                     _userSpaceSlot = __instance.Slot.AddSlot("Portable Mirror Userspace", false);
@@ -210,7 +207,7 @@ namespace PortableMirror {
         private static readonly ModConfigurationKey<UserRoot.UserNode> _RotationSource1 = new ModConfigurationKey<UserRoot.UserNode>("RotationSource1", "Rotation Source", () => UserRoot.UserNode.View);
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<bool> _grabable1 = new ModConfigurationKey<bool>("Grabable1", "Grabbable", () => false);
+        private static readonly ModConfigurationKey<bool> _grabable1 = new ModConfigurationKey<bool>("Grabable1", "Grabable", () => false);
 
 //        [AutoRegisterConfigKey]
 //        private static readonly ModConfigurationKey<bool> _LockPos1 = new ModConfigurationKey<bool>("LockPosition1", "Lock Position", () => false);
@@ -228,22 +225,22 @@ namespace PortableMirror {
         //private static readonly ModConfigurationKey<Mirror> _Resoltion1 = new ModConfigurationKey<Mirror>("Grabable1", "Grabable", () => );
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<int> _brightness1 = new ModConfigurationKey<int>("brightness1", "Defult brightness", () => 10);
+        private static readonly ModConfigurationKey<int> _brightness1 = new ModConfigurationKey<int>("brightness1", "Default brightness", () => 10);
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<int> _Opacity1 = new ModConfigurationKey<int>("opacity1", "Defult opacity", () => 0);
+        private static readonly ModConfigurationKey<int> _Opacity1 = new ModConfigurationKey<int>("opacity1", "Default opacity", () => 0);
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<int> _Resolution1 = new ModConfigurationKey<int>("Resolution1", "Defult resolution", () => 2560);
+        private static readonly ModConfigurationKey<int> _Resolution1 = new ModConfigurationKey<int>("Resolution1", "Default resolution", () => 2560);
 
         [AutoRegisterConfigKey]
         private static readonly ModConfigurationKey<dummy> _d5 = new ModConfigurationKey<dummy>(nameGenerator(5), "________________________________________________________________________________________________");
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<dummy> _d15 = new ModConfigurationKey<dummy>(nameGenerator(15), "Celing Mirror");
+        private static readonly ModConfigurationKey<dummy> _d15 = new ModConfigurationKey<dummy>(nameGenerator(15), "Ceiling Mirror");
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<string> _mirror2 = new ModConfigurationKey<string>("Mirror2", "Mirror name", () => "Celing Mirror");
+        private static readonly ModConfigurationKey<string> _mirror2 = new ModConfigurationKey<string>("Mirror2", "Mirror name", () => "Ceiling Mirror");
 
         [AutoRegisterConfigKey]
         private static readonly ModConfigurationKey<float3> _position2 = new ModConfigurationKey<float3>("Position2", "Spawn Position", () => new float3(0, 2, 0));
@@ -264,7 +261,7 @@ namespace PortableMirror {
         private static readonly ModConfigurationKey<UserRoot.UserNode> _RotationSource2 = new ModConfigurationKey<UserRoot.UserNode>("RotationSource2", "Rotation Source", () => UserRoot.UserNode.GroundProjectedHead);
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<bool> _grabable2 = new ModConfigurationKey<bool>("Grabable2", "Grabbable", () => false);
+        private static readonly ModConfigurationKey<bool> _grabable2 = new ModConfigurationKey<bool>("Grabable2", "Grabable", () => false);
 
  //       [AutoRegisterConfigKey]
  //       private static readonly ModConfigurationKey<bool> _LockPos2 = new ModConfigurationKey<bool>("LockPosition2", "Lock Position", () => false);
@@ -279,13 +276,13 @@ namespace PortableMirror {
         private static readonly ModConfigurationKey<dummy> _d17 = new ModConfigurationKey<dummy>(nameGenerator(17), "");
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<int> _brightness2 = new ModConfigurationKey<int>("brightness2", "Defult brightness", () => 10);
+        private static readonly ModConfigurationKey<int> _brightness2 = new ModConfigurationKey<int>("brightness2", "Default brightness", () => 10);
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<int> _Opacity2 = new ModConfigurationKey<int>("opacity2", "Defult opacity", () => 0);
+        private static readonly ModConfigurationKey<int> _Opacity2 = new ModConfigurationKey<int>("opacity2", "Default opacity", () => 0);
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<int> _Resolution2 = new ModConfigurationKey<int>("Resolution2", "Defult resolution", () => 2560);
+        private static readonly ModConfigurationKey<int> _Resolution2 = new ModConfigurationKey<int>("Resolution2", "Default resolution", () => 2560);
 
         [AutoRegisterConfigKey]
         private static readonly ModConfigurationKey<dummy> _d7 = new ModConfigurationKey<dummy>(nameGenerator(7), "________________________________________________________________________________________________");
@@ -315,7 +312,7 @@ namespace PortableMirror {
         private static readonly ModConfigurationKey<UserRoot.UserNode> _RotationSource3 = new ModConfigurationKey<UserRoot.UserNode>("RotationSource3", "Rotation Source", () => UserRoot.UserNode.GroundProjectedHead);
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<bool> _grabable3 = new ModConfigurationKey<bool>("Grabable3", "Grabbable", () => false);
+        private static readonly ModConfigurationKey<bool> _grabable3 = new ModConfigurationKey<bool>("Grabable3", "Grabable", () => false);
 
 //        [AutoRegisterConfigKey]
 //        private static readonly ModConfigurationKey<bool> _LockPos3 = new ModConfigurationKey<bool>("LockPosition3", "Lock Position", () => false);
@@ -330,13 +327,13 @@ namespace PortableMirror {
         private static readonly ModConfigurationKey<dummy> _d19 = new ModConfigurationKey<dummy>(nameGenerator(19), "");
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<int> _brightness3 = new ModConfigurationKey<int>("brightness3", "Defult brightness", () => 10);
+        private static readonly ModConfigurationKey<int> _brightness3 = new ModConfigurationKey<int>("brightness3", "Default brightness", () => 10);
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<int> _Opacity3 = new ModConfigurationKey<int>("opacity3", "Defult opacity", () => 0);
+        private static readonly ModConfigurationKey<int> _Opacity3 = new ModConfigurationKey<int>("opacity3", "Default opacity", () => 0);
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<int> _Resolution3 = new ModConfigurationKey<int>("Resolution3", "Defult resolution", () => 2560);
+        private static readonly ModConfigurationKey<int> _Resolution3 = new ModConfigurationKey<int>("Resolution3", "Default resolution", () => 2560);
 
         [AutoRegisterConfigKey]
         private static readonly ModConfigurationKey<dummy> _d9 = new ModConfigurationKey<dummy>(nameGenerator(9), "________________________________________________________________________________________________");
@@ -366,7 +363,7 @@ namespace PortableMirror {
         private static readonly ModConfigurationKey<UserRoot.UserNode> _RotationSource4 = new ModConfigurationKey<UserRoot.UserNode>("RotationSource4", "Rotation Source", () => UserRoot.UserNode.View);
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<bool> _grabable4 = new ModConfigurationKey<bool>("Grabable4", "Grabbable", () => false);
+        private static readonly ModConfigurationKey<bool> _grabable4 = new ModConfigurationKey<bool>("Grabable4", "Grabable", () => false);
 
 //        [AutoRegisterConfigKey]
 //        private static readonly ModConfigurationKey<bool> _LockPos4 = new ModConfigurationKey<bool>("LockPosition4", "Lock Position", () => false);
@@ -381,13 +378,13 @@ namespace PortableMirror {
         private static readonly ModConfigurationKey<dummy> _d21 = new ModConfigurationKey<dummy>(nameGenerator(21), "");
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<int> _brightness4 = new ModConfigurationKey<int>("brightness4", "Defult brightness", () => 10);
+        private static readonly ModConfigurationKey<int> _brightness4 = new ModConfigurationKey<int>("brightness4", "Default brightness", () => 10);
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<int> _Opacity4 = new ModConfigurationKey<int>("opacity4", "Defult opacity", () => 0);
+        private static readonly ModConfigurationKey<int> _Opacity4 = new ModConfigurationKey<int>("opacity4", "Default opacity", () => 0);
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<int> _Resolution4 = new ModConfigurationKey<int>("Resolution4", "Defult resolution", () => 2560);
+        private static readonly ModConfigurationKey<int> _Resolution4 = new ModConfigurationKey<int>("Resolution4", "Default resolution", () => 2560);
 
         [AutoRegisterConfigKey]
         private static readonly ModConfigurationKey<dummy> _d11 = new ModConfigurationKey<dummy>(nameGenerator(11), "________________________________________________________________________________________________");
@@ -417,7 +414,7 @@ namespace PortableMirror {
         private static readonly ModConfigurationKey<UserRoot.UserNode> _RotationSource5 = new ModConfigurationKey<UserRoot.UserNode>("RotationSource5", "Rotation Source", () => UserRoot.UserNode.View);
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<bool> _grabable5 = new ModConfigurationKey<bool>("Grabable5", "Grabbable", () => false);
+        private static readonly ModConfigurationKey<bool> _grabable5 = new ModConfigurationKey<bool>("Grabable5", "Grabable", () => false);
 
 //        [AutoRegisterConfigKey]
 //        private static readonly ModConfigurationKey<bool> _LockPos5 = new ModConfigurationKey<bool>("LockPosition5", "Lock Position", () => false);
@@ -432,13 +429,13 @@ namespace PortableMirror {
         private static readonly ModConfigurationKey<dummy> _d25 = new ModConfigurationKey<dummy>(nameGenerator(25), "");
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<int> _brightness5 = new ModConfigurationKey<int>("brightness5", "Defult brightness", () => 10);
+        private static readonly ModConfigurationKey<int> _brightness5 = new ModConfigurationKey<int>("brightness5", "Default brightness", () => 10);
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<int> _Opacity5 = new ModConfigurationKey<int>("opacity5", "Defult opacity", () => 0);
+        private static readonly ModConfigurationKey<int> _Opacity5 = new ModConfigurationKey<int>("opacity5", "Default opacity", () => 0);
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<int> _Resolution5 = new ModConfigurationKey<int>("Resolution5", "Defult resolution", () => 2560);
+        private static readonly ModConfigurationKey<int> _Resolution5 = new ModConfigurationKey<int>("Resolution5", "Default resolution", () => 2560);
 
         [AutoRegisterConfigKey]
         private static readonly ModConfigurationKey<dummy> _d13 = new ModConfigurationKey<dummy>(nameGenerator(13), "________________________________________________________________________________________________");
@@ -465,7 +462,7 @@ namespace PortableMirror {
         private static readonly ModConfigurationKey<UserRoot.UserNode> _RotationSource6 = new ModConfigurationKey<UserRoot.UserNode>("RotationSource6", "Rotation Source", () => UserRoot.UserNode.GroundProjectedHead);
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<bool> _grabable6 = new ModConfigurationKey<bool>("Grabable6", "Grabbable", () => false);
+        private static readonly ModConfigurationKey<bool> _grabable6 = new ModConfigurationKey<bool>("Grabable6", "Grabable", () => false);
 
 //        [AutoRegisterConfigKey]
 //        private static readonly ModConfigurationKey<bool> _LockPos6 = new ModConfigurationKey<bool>("LockPosition6", "Lock Position", () => false);
@@ -480,25 +477,13 @@ namespace PortableMirror {
         private static readonly ModConfigurationKey<dummy> _d23 = new ModConfigurationKey<dummy>(nameGenerator(23), "");
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<int> _brightness6 = new ModConfigurationKey<int>("brightness6", "Defult brightness", () => 10);
+        private static readonly ModConfigurationKey<int> _brightness6 = new ModConfigurationKey<int>("brightness6", "Default brightness", () => 10);
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<int> _Opacity6 = new ModConfigurationKey<int>("opacity6", "Defult opacity", () => 0);
+        private static readonly ModConfigurationKey<int> _Opacity6 = new ModConfigurationKey<int>("opacity6", "Default opacity", () => 0);
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<int> _Resolution6= new ModConfigurationKey<int>("Resolution6", "Defult resolution", () => 2560);
-
-        [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<dummy> _d26 = new ModConfigurationKey<dummy>(nameGenerator(26), "________________________________________________________________________________________________");
-
-        [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<dummy> _d27 = new ModConfigurationKey<dummy>(nameGenerator(27), "Local Light");
-
-        [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<colorX> _LightColor = new ModConfigurationKey<colorX>("lightColor", "Light Colour", () => new colorX(1, 1, 1, 1));
-
-        [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<int> _LightRange = new ModConfigurationKey<int>("LightRange", "Light Range", () => 30);
+        private static readonly ModConfigurationKey<int> _Resolution6= new ModConfigurationKey<int>("Resolution6", "Default resolution", () => 2560);
 
         //disable grab while dash is open
     }

@@ -156,7 +156,7 @@ namespace PortableMirror {
 
         private static void MainMenu(Slot Root) {
             addToggle("Mirror", "Mirror Enabled", "Mirror Disabled", Root, Mirror.MirrorsList[0].EnableToggle, Mirror.MirrorValues.Enabled, 0, _sprites.MainToggle);
-            addToggle("Grabbable", "Grabbable Enabled", "Grabbable Disabled", Root, Mirror.MirrorsList[0].GrabableToggle, Mirror.MirrorValues.Grabable, 0, _sprites.grab);
+            addToggle("Grabable", "Grabable Enabled", "Grabable Disabled", Root, Mirror.MirrorsList[0].GrabableToggle, Mirror.MirrorValues.Grabable, 0, _sprites.grab);
             AddQualitySwitcher(Root);
             AddSettingMenu(Root);
             AddMoreMirrors(Root);
@@ -192,14 +192,13 @@ namespace PortableMirror {
             MoreMirrorMirror(MoreMirrorsRoot, 3);
             MoreMirrorMirror(MoreMirrorsRoot, 4);
             MoreMirrorMirror(MoreMirrorsRoot, 5);
-            LocalLight(MoreMirrorsRoot);
             addBackButton(MoreMirrorsRoot, MainMenuRoot);
         }
 
         private static void AddQualitySwitcher(Slot MainMenuRoot, int index = 0) {
-            Slot QualitySwitcherRoot = addItem("3D / Cuttout", MainMenuRoot, 0.32f, 0.98f, 1, 1, true, null, _sprites.MType);
+            Slot QualitySwitcherRoot = addItem("3D / Cutout", MainMenuRoot, 0.32f, 0.98f, 1, 1, true, null, _sprites.MType);
             addItem("High Quality", QualitySwitcherRoot, 0, 1, 1, 1, false, Mirror.MirrorsList[index].MirrorHQ, _sprites.MType);
-            //addItem("High Quality Cutout (Experiemental)", QualitySwitcherRoot, 0, 0, 1, 0, false, Mirror.MirrorsList[index].MirrorHQ);
+            //addItem("High Quality Cutout (Experimental)", QualitySwitcherRoot, 0, 0, 1, 0, false, Mirror.MirrorsList[index].MirrorHQ);
             addItem("High Quality Opaque", QualitySwitcherRoot, 0, 1, 1, 1, false, Mirror.MirrorsList[index].MirrorHQOpaque, _sprites.MType);
             addItem("Camera", QualitySwitcherRoot, 0.412f, 0, 0.322f, 1, false, Mirror.MirrorsList[index].MirrorLQ, _sprites.Camera);
             addItem("Camera Skybox", QualitySwitcherRoot, 0.412f, 0, 0.322f, 1, false, Mirror.MirrorsList[index].MirrorLQSky, _sprites.Camera);
@@ -210,20 +209,11 @@ namespace PortableMirror {
         private static void MoreMirrorMirror(Slot MMRoot, int index) {
             Slot MItem = addItem(Mirror.MirrorsList[index].getName(), MMRoot, 0, 0, 1, 0, true, null, _sprites.Add);
             addToggle("Mirror", "Mirror Enabled", "Mirror Disabled", MItem, Mirror.MirrorsList[index].EnableToggle, Mirror.MirrorValues.Enabled, 0, _sprites.MainToggle, index);
-            addToggle("Grabbable", "Grabbable Enabled", "Grabbable Disabled", MItem, Mirror.MirrorsList[index].GrabableToggle, Mirror.MirrorValues.Grabable, 0, _sprites.grab, index);
+            addToggle("Grabable", "Grabable Enabled", "Grabable Disabled", MItem, Mirror.MirrorsList[index].GrabableToggle, Mirror.MirrorValues.Grabable, 0, _sprites.grab, index);
             AddQualitySwitcher(MItem, index);
             AddSettingMenu(MItem, index);
             //addToggle("Lock Position", "Use Local Position", "Use World Position", MItem, null, Mirror.MirrorValues.Lock, 1, _sprites.Lock, index);
             addBackButton(MItem, MMRoot);
-        }
-
-        private static void LocalLight(Slot Root) {
-            Slot LItem = addItem("Local light", Root, 0, 0, 0, 0, true, null, _sprites.Add);
-            addToggle("LocalLight", "Light Enabled", "Light Disabled", LItem, Mirror.personalLight.EnableToggle, Mirror.MirrorValues.LightON, 0, _sprites.MainToggle, 7);
-            addToggle("Grabbable", "Grabbable Enabled", "Grabbable Disabled", LItem, Mirror.MirrorsList[0].GrabableToggle, Mirror.MirrorValues.LightGrab, 0, _sprites.grab, 7);
-            addToggle("UI", "Visual Enabled", "Visual Disabled", LItem, Mirror.MirrorsList[0].GrabableToggle, Mirror.MirrorValues.LightVisual, 0, _sprites.RedX, 7);
-            addItem("Reset Settings", LItem, 0.98f, 1, 0.21f, 1, false, Mirror.personalLight.resetSettings, _sprites.Warning);
-
         }
 
         private struct _sprites {

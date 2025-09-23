@@ -523,7 +523,6 @@ namespace PortableMirror {
         }
 
         public static List<Mirror> MirrorsList = new List<Mirror>();
-        public static PersonalLight personalLight = new PersonalLight();
 
         public void setEnabled(bool enabled) {
             _enabled = enabled;
@@ -541,10 +540,7 @@ namespace PortableMirror {
             Grabable,
             DisableShadows,
             Pin,
-            Lock,
-            LightON,
-            LightGrab,
-            LightVisual
+            Lock
         }
         public bool getValue(MirrorValues value = MirrorValues.none) {
 
@@ -563,16 +559,6 @@ namespace PortableMirror {
 
                 case MirrorValues.Lock:
                     return _LockPosition;
-
-                case MirrorValues.LightON:
-                    return personalLight.getEnabled();
-
-                case MirrorValues.LightGrab:
-                    return personalLight.getGrab();
-
-                case MirrorValues.LightVisual:
-                    return personalLight.getVisual();
-
 
                 default:
                 case MirrorValues.none:
@@ -593,7 +579,7 @@ namespace PortableMirror {
         CameraPortal _camPort;
 
         MeshCollider _collider;
-        PositionAtUser _PosAtUs;// addd this and clean this up
+        PositionAtUser _PosAtUs;// add this and clean this up
         bool _LockPosition = false;
         bool _pinToHead = false;
         bool _shadows = true;
