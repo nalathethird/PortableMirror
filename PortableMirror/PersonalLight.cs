@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Renderite.Shared;
 using static PortableMirror.Mirror;
 
 namespace PortableMirror {
@@ -45,7 +46,7 @@ namespace PortableMirror {
             bm.Size.Value = 0.3f;
             _mr.Mesh.Value = bm.ReferenceID;
             _mr.Materials.Add(mat);
-            _mr.ShadowCastMode.Value = ShadowCastMode.Off;
+            _mr.ShadowCastMode.Value = Renderite.Shared.ShadowCastMode.Off;
 
             StaticTexture2D statex = _LocalLight.AttachComponent<StaticTexture2D>();
             _LocalLight.AttachComponent<DuplicateBlock>();

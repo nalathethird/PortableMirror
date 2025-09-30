@@ -4,6 +4,7 @@ using FrooxEngine.UIX;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
+using Renderite.Shared;
 using static FrooxEngine.CubemapCreator;
 using PortableMirror;
 
@@ -204,7 +205,7 @@ namespace PortableMirror {
             _reflectMat = mSlot.AttachComponent<ReflectionMaterial>();
             float b = ((float)_brightness) / 10;
             float O = ((float)_Opacity) / 10;
-            _reflectMat.TintColor.Value = new colorX(b, b, b, O, ColorProfile.Linear);
+            _reflectMat.TintColor.Value = new colorX(b, b, b, O, Renderite.Shared.ColorProfile.Linear);
             _reflectMat.ReflectionTexture.Value = _rtp.ReferenceID;
             MeshCollider collider = mSlot.AttachComponent<MeshCollider>();
             mSlot.AttachComponent<DuplicateBlock>();
@@ -522,7 +523,6 @@ namespace PortableMirror {
         }
 
         public static List<Mirror> MirrorsList = new List<Mirror>();
-        public static PersonalLight personalLight = new PersonalLight();
 
         public void setEnabled(bool enabled) {
             _enabled = enabled;
@@ -540,10 +540,7 @@ namespace PortableMirror {
             Grabable,
             DisableShadows,
             Pin,
-            Lock,
-            LightON,
-            LightGrab,
-            LightVisual
+            Lock
         }
         public bool getValue(MirrorValues value = MirrorValues.none) {
 
@@ -562,16 +559,6 @@ namespace PortableMirror {
 
                 case MirrorValues.Lock:
                     return _LockPosition;
-
-                case MirrorValues.LightON:
-                    return personalLight.getEnabled();
-
-                case MirrorValues.LightGrab:
-                    return personalLight.getGrab();
-
-                case MirrorValues.LightVisual:
-                    return personalLight.getVisual();
-
 
                 default:
                 case MirrorValues.none:
@@ -592,7 +579,7 @@ namespace PortableMirror {
         CameraPortal _camPort;
 
         MeshCollider _collider;
-        PositionAtUser _PosAtUs;// addd this and clean this up
+        PositionAtUser _PosAtUs;// add this and clean this up
         bool _LockPosition = false;
         bool _pinToHead = false;
         bool _shadows = true;
