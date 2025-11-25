@@ -25,9 +25,6 @@
 		<Copy SourceFiles="$(TargetDir)$(TargetFileName)" DestinationFolder="$(ResonitePath)rml_mods" ContinueOnError="true" />
 	</Target>
 
-	<ItemGroup>
-	  <Compile Remove="PersonalLight.cs" />
-	</ItemGroup>
 
 	<ItemGroup>
 		<Reference Include="0Harmony">
